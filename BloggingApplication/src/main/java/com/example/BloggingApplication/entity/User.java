@@ -8,8 +8,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import lombok.Data;
 
 @Entity
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,30 +25,6 @@ public class User {
 
     @ManyToMany
     private Set<User> followers = new HashSet<>();
-
-    public Long getId() {
-    	return this.id;
-    }
-    public void setId(Long id) {
-    	this.id = id;
-    }
-    public String getName() {
-    	return this.name;
-    }
-    public void setName(String name) {
-    	this.name = name;
-    }
-    public String getMobileNo() {
-    	return this.mobileNo;
-    }
-    public void setMobileNo(String mobileNo) {
-    	this.mobileNo = mobileNo;
-    } 
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+}
 }
 
